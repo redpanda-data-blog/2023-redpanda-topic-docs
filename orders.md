@@ -1,19 +1,34 @@
-# This is the orders topic
+# Orders topic
 
-Some high-level topic description goes here.
+The `OrderManagement` service is in charge of all CRUD operations for customer's orders. All changes will be populated via this topic contain the full entity (instead of just changes).
 
-## Level 2
+## GDPR notes
+This topic contains GDPR sensitive information such as the customer's full name, address and the items ordered by this person.
 
-Maybe we can describe the authorization polices
+## Schema/sample message
 
-## Team info
+**Order:**
 
-Who owns this topic?
-
-## Serde
-
-### Serialisation
-
-What serialization policies are supported? Where can the schemas found?
+```json
+{
+   "name":"Alice Brown",
+   "sku":"54321",
+   "price":199.95,
+   "shipTo":{
+      "name":"Bob Brown",
+      "address":"456 Oak Lane",
+      "city":"Pretendville",
+      "state":"HI",
+      "zip":"98999"
+   },
+   "billTo":{
+      "name":"Alice Brown",
+      "address":"456 Oak Lane",
+      "city":"Pretendville",
+      "state":"HI",
+      "zip":"98999"
+   }
+}
+```
 
 
