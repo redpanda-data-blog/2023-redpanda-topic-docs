@@ -1,0 +1,34 @@
+kafka:
+  brokers: ["redpanda:29092"]
+  schemaRegistry:
+    enabled: true
+    urls: ["http://redpanda:8081"]
+redpanda:
+  adminApi:
+    enabled: true
+    urls: ["http://redpanda:9644"]
+console:
+  topicDocumentation:
+    enabled: true
+    git:
+      enabled: true
+      repository:
+        url: https://github.com/redpanda-data-blog/redpanda-topic-docs
+        branch: main
+      # How often Console shall pull the repository to look for new files.
+      # Set to 0 to disable periodic pulls
+      refreshInterval: 1m
+      # Basic Auth
+      # If you want to use GitHub's personal access tokens use `token` as username 
+      # and pass the token as password
+      basicAuth:
+        enabled: true
+        username: token
+        password: "YOUR GITHUB PAT GOES HERE"
+      # SSH Auth
+      ssh:
+        enabled: false
+        username: ""
+        privateKey: ""
+        privateKeyFilepath: ""
+        passphrase: ""
